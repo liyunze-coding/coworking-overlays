@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&family=Poiret+One&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-font: "Poiret One";
+    --background-color:rgba(20, 20, 20, 0.9)
+}
+
+#status {
+    font-family: "hubballi";
+}
+
+#timer_div {
+    color: #fafafa;
+    background: var(--background-color);
+
+    font-family: var(--main-font), sans-serif;
+    font-size: 35px;
+
+    border: solid 2px white;
+    border-radius: 10px;
+
+    width: auto;
+    padding: 5px;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    min-width: 150px;
+    text-align: center;
+}

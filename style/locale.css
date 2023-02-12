@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+}
+
+:root {
+    --main-font:"Courier Prime";
+    --background-color:rgba(0,0,0,0);
+}
+
+body {
+    background-color:gray;
+    color:white;
+}
+
+#locale {
+    font-family: var(--main-font), sans-serif;
+    text-align:right;
+
+    width:600px; 
+    height:130px;
+
+    padding:10px;
+
+    background: var(--background-color);
+}
+
+#time {
+    font-size:60px;
+}
+
+#date{
+    font-size:40px;
+}
