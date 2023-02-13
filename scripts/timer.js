@@ -1,21 +1,24 @@
-const timer = document.querySelector('#timer');
+const timer = document.querySelector('#current-time');
+const timer_status = document.querySelector('#status');
 const alarm = new Audio('./audio/ding.mp3');
-alarm.volume=0.3;
-let time;
-let minutes, seconds, formattedTime;
-let pause = false;
-let reset = false;
+
+// ADJUST VOLUME HERE
+alarm.volume=0.5;
 
 /*
 
 commands : 
-- !timer / !settime
-- !reset
-- !pause
-- !unpause
+!timer / !settime
+!reset
+!pause
+!unpause
 
 */
 
+let time;
+let minutes, seconds, formattedTime;
+let pause = false;
+let reset = false;
 
 function processTime(str) {
     if (typeof str != "string"){
@@ -38,6 +41,7 @@ function processTime(str) {
 ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
     message = message.trim(); //trim message so no whitespaces
 
+    // set the time
     if (['timer', 'settime'].includes(command)){
         if (!flags.broadcaster){
             return ComfyJS.Say(`@${user} only the streamer can use this command!`);
@@ -52,13 +56,17 @@ ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
             status = 'Focus';
             ComfyJS.Say(`/announce Time to focus!`);
         }
+
+        timer_status.innerText = status;
+
+        // counting down
         let countDown = setInterval(() => {
             if (time >= 0){
                 minutes = parseInt(time/60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
                 seconds = (time%60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
             
-                formattedTime = `<span style='font-family:hubballi'>${status}</span><br>${minutes}:${seconds}`;
-                timer.innerHTML = formattedTime;
+                formattedTime = `${minutes}:${seconds}`;
+                timer.innerText = formattedTime;
             }
 
             if (time === 300){
