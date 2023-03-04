@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap');
-:root{
-    --title-font-size:30px;
-    --task-list-font-size:20px;
 
-    --checkbox-size: 18px;
-    --checkbox-top-distance: 0;
+:root{
+    /* font-size */
+    --title-font-size:30px;
+    --task-list-font-size:25px;
+
+    --checkbox-size: 15px;
+    --checkbox-top-distance: 4px;
 
     --task-padding-left: 35px;
 
@@ -81,7 +83,7 @@ body {
     position: relative;
     padding: 5px 5px 5px var(--task-padding-left);
     
-    overflow-x:hidden;
+    overflow:hidden;
     text-overflow: ellipsis;
 
     background: var(--task-bg-color);
@@ -111,7 +113,7 @@ body {
 .checkmark {
     position: absolute;
 
-    top:9px;
+    top: var(--checkbox-top-distance);
     /* top: 50%;
     transform:translateY(-50%); */
 
